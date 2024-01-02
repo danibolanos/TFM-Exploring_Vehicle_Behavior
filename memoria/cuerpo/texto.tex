@@ -1,0 +1,110 @@
+%----------------
+%  ÍNDICES
+%----------------
+\cleardoublepage
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------
+%  SIGLAS
+%----------------
+\cleardoublepage
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{AEAT} & \textbf{A}gencia \textbf{E}statal de \textbf{A}dministración \textbf{T}ributaria\\
+\textbf{ANPR} & \textbf{A}utomatic \textbf{N}umber-\textbf{P}late \textbf{R}ecognition\\
+\textbf{API} & \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface\\
+\textbf{AP} & \textbf{A}ffinity \textbf{P}ropagation\\
+\textbf{ASC} & \textbf{A}ttributed \textbf{S}pectral \textbf{C}lustering\\
+\textbf{AIC} & \textbf{A}kaike \textbf{I}nformation \textbf{C}riterion\\
+\textbf{BIC} & \textbf{B}ayesian \textbf{I}nformation \textbf{C}riterion\\
+\textbf{CH} & \textbf{C}alinski-\textbf{H}arabasz Score\\
+\textbf{DB} & \textbf{D}ata \textbf{B}ase\\
+\textbf{DBI} & \textbf{D}avies-\textbf{B}ouldin \textbf{I}ndex\\
+\textbf{DGT} & \textbf{D}irección \textbf{G}eneral de \textbf{T}ráfico\\
+\textbf{DTW} & \textbf{D}ynamic \textbf{T}ime \textbf{W}arping\\
+\textbf{EM} & \textbf{E}xpectation \textbf{M}aximization\\
+\textbf{GPS} & \textbf{G}lobal \textbf{P}ositioning \textbf{S}ystem\\
+\textbf{IC} & \textbf{I}nformation \textbf{C}riterion\\
+\textbf{INE} & \textbf{I}nstituto \textbf{N}acional de \textbf{E}stadística\\
+\textbf{IO} & \textbf{I}ndoor-\textbf{O}utdoor\\
+\textbf{IP} & \textbf{I}nternet \textbf{P}rotocol\\
+\textbf{IoT} & \textbf{I}nternet \textbf{O}f \textbf{T}hings\\
+\textbf{LPR} & \textbf{L}icense \textbf{P}late \textbf{R}ecognition\\
+\textbf{MAD} & \textbf{M}edian \textbf{A}bsolute \textbf{D}eviation\\
+\textbf{ML} & \textbf{M}achine \textbf{L}earning\\
+\textbf{MT} & \textbf{M}aster's \textbf{T}hesis\\
+\textbf{PCA} & \textbf{P}rincipal \textbf{C}omponent \textbf{A}nalysis\\
+\textbf{SC} & \textbf{S}ilhouette \textbf{C}oefficient\\
+\textbf{SGTM} & \textbf{S}ecretaría \textbf{G}eneral de \textbf{T}ransportes y \textbf{M}ovilidad\\
+\textbf{SSB} & \textbf{S}um of \textbf{S}quared \textbf{B}etween\\
+\textbf{SSW} & \textbf{S}um of \textbf{S}quared \textbf{Within}\\ 
+
+\end{abbreviations}
+
+\begin{comment}
+%----------------
+% CONSTANTES Y DEFINICIONES
+%----------------
+\cleardoublepage
+\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+\end{constants}
+
+%----------------
+% SÍMBOLOS Y CONCEPTOS
+%----------------------------------------------------------------------------------------
+\cleardoublepage
+\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+$a$ & distance & \si{\meter} \\
+$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+\addlinespace % Gap to separate the Roman symbols from the Greek
+
+$\omega$ & angular frequency & \si{\radian} \\
+
+\end{symbols}
+\end{comment}
+
+%----------------
+% CONTENIDO DEL TFM
+%----------------
+\cleardoublepage
+\mainmatter % Begin numeric (1,2,3...) page numbering
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{capitulos/capitulo1}
+\include{capitulos/capitulo2}
+\include{capitulos/capitulo3}
+\include{capitulos/capitulo4}
+\include{capitulos/capitulo5}
+\include{capitulos/capitulo6}
+\include{capitulos/capitulo7}
+
+%----------------
+% ANEXOS
+%----------------
+
+\cleardoublepage
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+%\include{anexos/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+

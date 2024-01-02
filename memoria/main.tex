@@ -1,0 +1,431 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % english for English, ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage{comment}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usepackage{etoolbox}
+
+\usepackage{xcolor}
+
+\usepackage{ upgreek }
+
+%\usepackage[colorlinks=true,linkcolor=cyan]{hyperref}%
+
+\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true,
+%    linkcolor=cyan
+%    urlcolor=cyan
+%}
+
+\hypersetup{
+    colorlinks=true,
+    allcolors=cyan,
+    %linkcolor=blue,
+    %filecolor=magenta,      
+    %urlcolor=cyan,
+    %pdftitle={Overleaf Example},
+    %pdfpagemode=FullScreen,
+    }
+
+\usepackage[nameinlink]{cleveref}
+\crefname{table}{Table}{Tables}
+\crefname{figure}{Figure}{Figures}
+%\crefname{section}{Section}{Sections}
+
+\usepackage{caption}
+% Modifying the format of the figure label
+\DeclareCaptionLabelFormat{figurebold}{\textbf{Figure #2}}
+\captionsetup[figure]{labelformat=figurebold}
+% Modifying the format of the table label
+\DeclareCaptionLabelFormat{tablebold}{\textbf{Table #2}}
+\captionsetup[table]{labelformat=tablebold}
+
+% Change footnote tables
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{subfigure}
+\usepackage{multirow}
+%% ESte es para comentarios de varias lines \begin{comment}
+\usepackage{verbatim}
+\usepackage{longtable} % para tablas largas
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+\usepackage[backend=biber,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{bibliography.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\usepackage[scaled=.90]{helvet}
+
+\usepackage[skip=10pt plus1pt, indent=0pt]{parskip}
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+
+
+\input{cuerpo/01rellenar.tex}
+
+% *********************************************************************
+
+\degree{Trabajo de Fin de Máster} %
+\subject{Master de Gestión en Tecnologías de Proceso de Negocio} % 
+\university{\href{http://www.ugr.es}{Universidad de Granada}} % print it elsewhere with \univname
+
+\def\listtablename{List of Tables}% 
+\def\tablename{Tabla}%
+\begin{document}
+
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\tablename}{Tabla} 
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+  \vspace*{.06\textheight}
+  \textcolor{mdtGreen}{\rule{\textwidth}{10pt}}
+\includegraphics[width=0.8\textwidth]{UGR/ugr}
+
+%{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\LARGE Master's Degree in Business \\ Process Management and Technologies} % 
+
+Academic year \cursoAcademico
+
+%\HRule \\[0.4cm] % Horizontal line
+
+\vspace{1cm}\textsc{Master's Thesis}\vspace{0.5cm}
+
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\href{}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisors:} \\
+\supname
+\ifcsdef{supervisorB}{
+
+  \supervisorB}{}
+
+\end{flushright}
+\end{minipage}\\
+
+%\large \today % Date
+ 
+%% \vfill
+
+\begin{tabular}{|p{14cm}|}
+  \hrule \\
+  \textbf{DETECCIÓN DEL PLAGIO} \\
+   \\
+  {\small La Universidad utiliza el programa \textbf{Turnitin Feedback Studio} para comparar la originalidad del trabajo entregado por cada estudiante con millones de recursos electrónicos y detecta aquellas partes del texto copiadas y pegadas. Copiar o plagiar en un TFM es considerado una \textbf{Falta Grave}, y puede conllevar la expulsión definitiva de la Universidad.}\\ % University requirement text \degreename
+  \hrule
+\end{tabular}
+
+           
+%% \textit{in the}\\[0.4cm]
+%% \groupname\\\deptname\\[2cm] % Research group name and department name
+ 
+\vfill
+
+% *********************************************************************
+% COMENTAR SI NO SE TIENE INTERÉS EN PUBLICACIÓN EN ABIERTO
+% COMMENT IF NOT INTERESTED IN OPEN PUBLISH
+% *********************************************************************
+\begin{tabular}{l p{12cm}}
+  \raisebox{-.5\height}{\includegraphics[width=2cm]{UGR/cc}} & \small Esta obra se encuentra sujeta a la licencia Creative Commons Reconocimiento – No Comercial – Sin Obra Derivada \\
+\end{tabular}
+% *********************************************************************
+
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	Resumen español
+%----------------------------------------------------------------------------------------
+%% \begin{abstract}
+\pagestyle{empty}
+\cleardoublepage
+\section*{\ttitle: \thesissubtitle}
+
+\authorname
+
+{\vspace{1cm}\noindent\large \textbf{Palabras clave:} IoT, sensores, clustering, pueblos inteligentes, explicabilidad \keywordnames}
+
+\subsection*{Resumen}
+
+\input{cuerpo/02resumen-es.tex}
+%% \end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%	Resumen inglés
+%----------------------------------------------------------------------------------------
+\pagestyle{empty}
+\cleardoublepage
+%% \begin{abstract}
+\section*{\Ettitle: \Ethesissubtitle}
+
+\authorname
+
+{\vspace{1cm}\noindent\large \textbf{Keywords:} IoT, sensors, clustering, smart villages, explainability \keywordnames}
+
+\subsection*{Abstract}
+\input{cuerpo/03resumen-en.tex}
+%% \end{abstract}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE 1
+%----------------------------------------------------------------------------------------
+\pagestyle{empty}
+\cleardoublepage
+%% \begin{abstract}
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{2cm}
+
+{\large
+  Yo, \textbf{\authorname}, estudiante del \textbf{Máster en gestión y Tecnologías de Procesos de Negocio de la Universidad de Granada}, con DNI \dni, autorizo la ubicación de la siguiente copia de mi Trabajo Fin de Máster en la biblioteca del centro para que pueda ser consultada por las personas que lo deseen.
+}
+\vfill
+
+{
+  \large
+  Fdo: \textbf{\authorname}
+}
+
+\begin{flushright}
+  \large Granada, 20 de junio de 2023
+\end{flushright}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE 2
+%----------------------------------------------------------------------------------------
+\pagestyle{empty}
+\cleardoublepage
+%% \begin{abstract}
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{2cm}
+
+{\large
+
+  \supname, Profesora del \deptname \ de la Universidad de Granada.
+
+  \vspace{0.5cm}
+
+  \ifcsdef{supervisorB}{
+
+    \supervisorB, Profesora del \departmentB \ de la Universidad de Granada.
+}{}
+
+
+  \vspace{1cm}
+
+  \noindent\textbf{Informan:}
+
+  \vspace{0.5cm}
+
+  Que el presente trabajo, titulado \textbf{\ttitle}, \textbf{\thesissubtitle}, ha sido realizado bajo su supervisión por \textbf{\authorname}, y autorizamos la defensa de dicho trabajo ante el tribunal que corresponda.
+
+  \vspace{0.5cm}
+
+  Y para que conste, expiden y firman el presente informe en Granada a 20 de junio de 2023.
+
+
+}
+\vfill
+
+{
+  \large
+
+  Las directoras:
+  \vspace{4cm}
+
+  Fdo: \textbf{\supname} \\
+  Fdo: \textbf{\supervisorB}
+}
+
+\begin{flushright}
+  \large Granada, 20 de junio de 2023
+\end{flushright}
+
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE 3
+%----------------------------------------------------------------------------------------
+\pagestyle{empty}
+\cleardoublepage
+%% \begin{abstract}
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{2cm}
+
+{\large
+
+  \textbf{\authorname}, estudiante del \textbf{Máster en Gestión y Tecnologías de Procesos de Negocio de la Universidad de Granada}, \underline{declaro explícitamente} que el trabajo presentado es original, entendido en el sentido de que todas las fuentes utilizadas se han citado debidamente respetando los derechos de autoría.
+
+}
+\vfill
+
+{
+  \large
+
+  Fdo: \textbf{\authorname}
+}
+
+\begin{flushright}
+  \large Granada, 20 de junio de 2023
+\end{flushright}
+
+
+%% \begin{declaration}
+%% \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+%% \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+
+%% \begin{itemize} 
+%% \item This work was done wholly or mainly while in candidature for a research degree at this University.
+%% \item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+%% \item Where I have consulted the published work of others, this is always clearly attributed.
+%% \item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+%% \item I have acknowledged all main sources of help.
+%% \item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+%% \end{itemize}
+ 
+%% \noindent Signed:\\
+%% \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ 
+%% \noindent Date:\\
+%% \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+%% \end{declaration}
+
+
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+%% \begin{abstract}
+%% \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+%% The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
+%% \end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\pagestyle{empty}
+\cleardoublepage
+
+\begin{acknowledgements}
+  %\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+\input{cuerpo/04agradecimientos.tex}
+\end{acknowledgements}
+
+\input{cuerpo/texto}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\cleardoublepage
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  

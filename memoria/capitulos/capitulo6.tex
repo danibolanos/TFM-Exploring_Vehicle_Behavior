@@ -1,0 +1,29 @@
+\chapter{Discussions}
+\label{ch:discussions}
+
+\cref{tab:matching-clusters} shows the equivalence by clusters and percentage of the total set for the two normalizations analyzed. For the group of registered residents, we can see that both normalization methods group them into a single cluster (cluster 3 in min-max and 0 in $\ell^2$). However, there is a 2.62\% difference in the size of these clusters, with the $\ell^2$ cluster size being smaller. The min-max normalization distinguishes between foreign visitors and foreign non-registered residents (clusters 1 and 6, respectively), while the $\ell^2$ normalization groups all foreign individuals into a single cluster (cluster 1). The clusters of national non-registered residents are also similar in both normalization methods (cluster 4 in min-max and 2 in $\ell^2$). Still, there is a 4.19\% difference in the size of these clusters, with the size of the $\ell^2$ cluster also being smaller. Finally, the $\ell^2$ normalization groups all national visitors into a single cluster (cluster 3), while the min-max normalization divides these into three distinct clusters (clusters 0, 2 and 5). It should be noted that in the $\ell^2$ normalization, cluster 3 is larger than the sum of clusters 0, 2 and 5, because it contains individuals with resident behaviors that were not included in the other clusters. This explains the significant differences in the sample sizes of clusters 0 and 2 compared to their equivalents in the min-max normalization.
+
+\begin{table}[]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{ccccccccc}
+\hline
+Normalization             &                                 & \multicolumn{7}{c}{}                                                                                                            \\ \hline
+\multirow{2}{*}{Min-max}  & \multicolumn{1}{c|}{Nº cluster} & \multicolumn{1}{c|}{3}       & 1      & \multicolumn{1}{c|}{6}      & \multicolumn{1}{c|}{4}      & 0        & 2      & 5       \\ \cline{3-9} 
+                          & \multicolumn{1}{c|}{\% sample}  & \multicolumn{1}{c|}{11.17\%} & 6.11\% & \multicolumn{1}{c|}{3.05\%} & \multicolumn{1}{c|}{8.55\%} & 15.04\%  & 8.58\% & 47.50\% \\ \hline
+\multirow{2}{*}{$\ell^2$} & \multicolumn{1}{c|}{Nº cluster} & \multicolumn{1}{c|}{0}       & \multicolumn{2}{c|}{1}               & \multicolumn{1}{c|}{2}      & \multicolumn{3}{c}{3}       \\ \cline{3-9} 
+                          & \multicolumn{1}{c|}{\% sample}  & \multicolumn{1}{c|}{8.55\%}  & \multicolumn{2}{c|}{8.76\%}          & \multicolumn{1}{c|}{4.36\%} & \multicolumn{3}{c}{78.33\%} \\ \hline
+\end{tabular}%
+}
+\caption{Equivalence of the clusters made for each normalization.}
+\label{tab:matching-clusters}
+\end{table}
+
+The min-max normalization seems more efficient since it allows a more detailed segmentation of individuals than $\ell^2$, and $\ell^2$ shows more outliers in the box plots for all the variables. While min-max seems to distinguish the residents from the visitors, with the variable representing the number of nights spent in the area, $\ell^2$ seems to have a clear segmentation on the distance to their home. Hence, for our purposes, min-max offers better segmentations. In addition, min-max detects atypical behaviors of individuals not officially registered as residents of the area, but that behave as residents. In contrast, the $\ell^2$ normalization could be useful for excluding foreigners from the analysis and focusing only on comparing registered and non-registered residents at the national level, grouping visitors in a single cluster.
+
+%Añadir sección
+
+% Añadir discussions a resultados y dejar conclusions como que se han ido cumpliendo los objetivos de la introducción. Infraestructura montada y diseñada. Resultados útiles para tal... 
+\clearpage
+
+In summary, the work presents an effective pipeline for clustering analysis, using data from different sensors and sources to detect registered and non-registered residents, and visitors; and their behavior in a given area. We have selected an optimal clustering algorithm based on the data distribution and two potential normalization algorithms. We found that the min-max normalization was the most effective for detailed segmentation of individuals and their visiting behavior in the area, and detection of atypical behavior of individuals not registered as residents of the area, but showing resident behavior. The $\ell^2$ normalization could be useful in specific situations requiring a distinction from the region of origin. The information obtained from this analysis can help area managers to create personalized strategies for retaining specific tourists based on income or provenance and encouraging overnight stays, thereby generating wealth in the area and reducing the number of vehicles moving inside the area with other policies. This approach has important tourism planning and sustainability implications and is extensible to different regions. Our pipeline and analysis could also assist data analysts in improving their solutions and making informed decisions.

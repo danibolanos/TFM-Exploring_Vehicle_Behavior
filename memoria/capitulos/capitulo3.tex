@@ -1,0 +1,222 @@
+\chapter{Fundamentals} \label{ch:fundamentals}
+
+\section{Main clustering algorithms} \label{subsec:algorithms}
+
+Unsupervised machine learning automates the knowledge discovery process without the need for labeled data or previously classified data~\cite{lau2019survey}. Techniques such as clustering and anomaly detection fall under this category. Clustering is an unsupervised ML technique that aims to find patterns in observations of events. Most taxonomies group the algorithms into at least five categories~\cite{halkidi2001clustering}, although we have identified seven, as some of them did not fit in the 5 elements taxonomy: 
+
+\textbf{Partitional Clustering:} This clustering technique decomposes a dataset into distinct clusters through an iterative process of distance calculations between individuals, and typically uses centroids. Examples of algorithms that utilize this technique include K-Means and MiniBatchKMeans, which is a scalable version of K-Means that updates clusters using small random batches until convergence is achieved~\cite{bejar2013k}. Another algorithm that falls into this category is ISODATA~\cite{memarsadeghi2007fast}, which employs iterative self-organizing data analysis.
+
+\textbf{Hierarchical Clustering:} This clustering method constructs clusters in either an agglomerative or divisive manner by adding or removing individuals, respectively. BIRCH~\cite{zhang1996birch}, an algorithm that uses an unbalanced height tree to dynamically split data points, is a popular example of hierarchical clustering.
+
+\textbf{Density-based Clustering:} This technique identifies dense regions of objects in the data space separated by low-density regions. It is known to handle noise well and adapt to arbitrary shapes in the data. The algorithm most commonly in this category is DBSCAN~\cite{ester1996density}, along with improved versions such as OPTICS~\cite{ankerst1999optics} and HDBSCAN~\cite{mcinnes2017hdbscan}, which compute a density function for each cluster found. Other examples include Mean-shift~\cite{comaniciu2002mean}, which creates clusters based on regions of maximum density attraction and can be considered a version of K-Means using density functions, making it adaptable to arbitrary shapes of clusters.
+
+\textbf{Distribution-based Clustering:} This technique creates clusters based on the probability that each individual belongs to the same distribution, the Gaussian distribution is the most widely used distribution based on the expectation maximization algorithm~\cite{yang2012robust}. These algorithms result in Gaussian Mixture models, which are also classification algorithms. In some cases, they are a generalization of K-Means, with each individual having a probability of belonging to each cluster.
+
+\textbf{Grid-based Clustering:} This clustering approach involves dividing the space into a finite number of cells, followed by defining clustering operations within the quantized space. Some popular algorithms that utilize this method include STING~\cite{wang1997sting}, WaveCluster~\cite{sheikholeslami1998wavecluster}, and CLIQUE~\cite{forster2009clique}.
+
+\textbf{Message-Passing Clustering:} This category of clustering creates clusters by exchanging messages between different data points until convergence. An example of this approach is the Affinity Propagation (AP) algorithm~\cite{frey2007clustering}, which has been further improved by proposals such as IWC-KAP~\cite{serdah2016clustering} and ScaleAP~\cite{shiokawa2021scalable}.
+
+\textbf{Spectral Clustering:} This method uses the spectral radius of a similarity matrix of the data in a multidimensional problem. Dimensionality reduction techniques, such as Principal Component Analysis (PCA), are used to obtain a linearly separable problem. There are different versions of Spectral Clustering algorithms, depending on how the eigenvectors are selected from the Laplacian of the similarity matrix~\cite{von2007tutorial}. Newer versions, such as Attributed Spectral Clustering (ASC), improve the degree of affinity between nodes in the same density region~\cite{berahmand2022novel}.
+
+\cref{tab:references-clustering} shows the main algorithms in each category described in this section, and examples of applications for each algorithm, in the field of mobility pattern analysis in the last 3 years (2020-2023).
+
+\begin{table}[]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llll}
+\hline
+Clustering Category   & Algorithms                                                                  & Application & Related work             \\ \hline
+Partitional           & \begin{tabular}[c]{@{}l@{}}K-Means, MiniBatchKMeans, \\ ISODATA\end{tabular} &   \begin{tabular}[c]{@{}l@{}}Target classes, \\ analyze patterns\end{tabular}          & \cite{yao2022understanding, sun2021identifying, yao2021understanding} \\ \hline
+Hierarchical          & \begin{tabular}[c]{@{}l@{}}Agglomerative clustering,\\ Divisive clustering, BIRCH \end{tabular}                                         &     \begin{tabular}[c]{@{}l@{}}Behavioral patterns, \\ feature extraction\end{tabular}        & \cite{pasupathi2021trend,yu2022novel,kim2021spatial} \\ \hline
+Density-based &
+  \begin{tabular}[c]{@{}l@{}}DBSCAN, OPTICS, \\ HDBSCAN, MeanShift\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Complexity reduction, \\ anomaly detection\end{tabular} &
+  \cite{peixoto2021traffic, bai4086627data, yao2022analysis, belhadi2021deep} \\ \hline
+Distribution-based    & Gaussian Mixture                                                            &     \begin{tabular}[c]{@{}l@{}} Density estimation, \\ outlier detection\end{tabular}          & \cite{cats2022unravelling,gutierrez2020profiling,wang2021identifying} \\ \hline
+Grid-based            & \begin{tabular}[c]{@{}l@{}}STING, WaveCluster, \\ CLIQUE\end{tabular}       &     \begin{tabular}[c]{@{}l@{}}Spatial-based \\ segmentation \end{tabular}        & Not found \\ \hline 
+Message passing-based & \begin{tabular}[c]{@{}l@{}}Affinity Propagation, \\ IWC-KAP, ScaleAP   \end{tabular}                                                          &   \begin{tabular}[c]{@{}l@{}}Clustering indoor \\ location patterns \end{tabular}          & \cite{martin2021affinity,zhao2022hyper,de2022application}\\ \hline
+Spectral              & Spectral Clustering, ASC                                                         &      \begin{tabular}[c]{@{}l@{}}Graph partitioning, \\ image segmentation \end{tabular}         & \cite{priambodo2021predicting, park2021ship,li2022unsupervised} \\ \hline
+\end{tabular}%
+}
+\caption{Examples of works using clustering to infer mobility pattern in 2020-2023.}
+\label{tab:references-clustering}
+\end{table}
+
+\section{Clustering performance} \label{subsec:algorithms-mets}
+
+Clustering is difficult to evaluate, as we do not know the ground-true, i.e. we do not have labeled data, to evaluate whether the clustering algorithm has grouped each individual in the right cluster. However, there are some metrics that could give some insight into how good the clustering is based on the distances between groups or the balance between groups, or the density of individuals in each group. The three most popular internal evaluation metrics in the literature~\cite{liu2010understanding} are silhouette coefficient,  calinski-harabasz score, and davies-bouldin index. All of these metrics are based on distances between data points and are commonly used to evaluate the effectiveness of virtually any clustering algorithm, working especially well in algorithms that work with distances, such as those included in the hierarchical, partitional, or spectral categories.
+
+
+\begin{itemize}
+    \item \textbf{Silhouette Coefficient} (SC): measures the similarity, based on distances, of an individual to its own cluster compared to other clusters~\cite{rousseeuw1987silhouettes}. The coefficient value ranges between $[-1, 1]$, where $1$ represents a good clustering division and a value close to $-1$ represents a poor division.
+
+    The silhouette coefficient of one data point $i \in C_i$ is:
+
+    \begin{equation}
+        s(i)=\frac{b(i)-a(i)}{\max\{a(i),b(i)\}} \ if \ |C_i|>1, \ \ s(i)=0 \ if \ |C_i|=1
+    \end{equation}
+    
+    Where $C_i$ represents the cluster to which the data point $i$ belongs, and $|C_i|$ is the cluster size, i.e. the total number of points contained in $C_i$.
+
+    \begin{equation}
+        a(i)=\frac{1}{|C_i|-1} \sum_{j\in C_i,i\neq j} ||j-i||, \ \ b(i)=\min_{k\neq i} \frac{1}{|C_k|} \sum_{j\in C_k} ||j-i||
+    \end{equation}
+
+    Where $a(i)$ is the average distance between a data point $i$ and all other data points in the same cluster $C_i$, and $b(i)$ is the average distance between a data point $i$ and all data points in the nearest cluster other than $C_i$.
+
+    For $n$ the total number of data points, the global silhouette coefficient is defined as:
+
+    \begin{equation}
+        SC=\frac{1}{n}\sum_{i=1}^n s(i)
+    \end{equation}
+    
+    
+    \item \textbf{Calinski-Harabasz Score} (CH): like the silhouette coefficient, measures how similar an individual is to its group relative to other groups~\cite{calinski1974dendrite}. A higher value minimizes the intracluster covariance of individuals and maximizes the intercluster covariance. In cluster analysis, the within-group variance and between-group variance can be calculated by sum-of-squares within a cluster (SSW) and sum-of-squares between clusters (SSB) respectively.
+
+\textit{Sum of Squared Within (SSW)}: minimizes the distance between individuals in the same cluster (cohesion).
+
+\begin{equation}
+    SSW = \sum_{i=1}^k\sum_{i\in C_i} ||i-m_i||^2
+\end{equation}
+
+where $k$ is the number of clusters, $i$ is a point of cluster $C_i$ and $m$ is the centroid of a cluster $C_i$.
+
+\textit{Sum of Squared Between (SSB)}: maximizes the distance between individuals from different clusters (separation).
+
+\begin{equation}
+    SSB = \sum_{j=1}^k|C_j|||m_j-\bar{x}||^2
+\end{equation}
+
+
+where $k$ is the number of clusters, $|C_j|$ is the number of elements in a cluster $j$, $m_j$ is the centroid of the cluster $j$ and $\bar{x}$ is the mean of the dataset.
+
+The CH score is the division between both variances:
+
+\begin{equation}
+    CH=\frac{SSB(n-k)}{SSW(k-1)}
+\end{equation}
+  where $k$ is the number of clusters and $n$ is the sample size. 
+ 
+    
+    \item \textbf{Davies-Bouldin Index} (DBI): Small values indicate compact clusters with well-differentiated centers that are far apart from each other.~\cite{davies1979cluster}. {\color{black} 
+
+    \begin{equation}
+    DBI=\frac{1}{k} \sum_{i=1,i\neq j}^ k \max(\frac{\sigma_i+\sigma_j}{||C_j-C_i||})
+    \end{equation}
+
+    where $k$ is the number of clusters, $\sigma_p$ is the average distance between each point in a cluster $p$ and the centroid of its cluster (with $p \in \{i,j\}$) and $||C_j-C_i||$ is the distance between the centroids of the two clusters.
+    
+    }
+\end{itemize}
+
+
+The distance-based metrics discussed above may not be suitable for algorithms that use the Expectation Maximization (EM) method, such as the GaussianMixture algorithm. This is because the EM method models the data using probability distributions rather than distances between data points. Therefore, we might get some imprecision when comparing the performance of algorithms of this type if we use these metrics. Instead of using distance-based metrics, distribution-based algorithms typically use statistical criteria to determine the optimal number of clusters or components that best fit the data. These metrics aim to balance the trade-off between an ideal clustering and the number of parameters used in the model, with a penalty for models that have too many parameters. One of the scores used is the information criterion (IC), a penalized likelihood function that includes a negative log-likelihood function and an aggregate penalty term that increases with the number of parameters in the model. 
+
+\begin{equation}
+    IC(K)=-2\cdot l(\hat{\Uppsi} | C)+d(K)\cdot a_n
+\end{equation}
+
+where $\hat{\Uppsi}$ is the estimate of the parameters of the $K$-component mixture model, $d(K)$ the number of parameters of the $K$-component mixtures model, $l(\hat{\Uppsi} | C)$ the log-likelihood function, $n$ the sample size, and $a_n$ an increasing function. The optimal number of clusters is the one that minimizes the IC. 
+
+The following are two of the best-known variations of information criteria used in the literature~\cite{hu2015initializing}:
+
+\begin{itemize}
+    \item \textbf{Akaike information criterion} (AIC): AIC is a particular specification of the general information criterion (IC), in which $a_n=2$. This criterion is known to overestimate the order of the model.
+    \begin{equation}
+        AIC(K)=-2\cdot l(\hat{\Uppsi} | C)+2\cdot d(K)
+    \end{equation}
+
+    \item \textbf{Bayesian information criterion} (BIC): Tries to overcome the overestimate of AIC. The penalty term depends on the sample size $n$, so as $n \to \infty$ the penalty is larger and does not overestimate the order of the mixture as much as AIC does~\cite{baudry2015estimation}.
+
+        \begin{equation}
+            BIC(K)=-2\cdot l(\hat{\Uppsi} | C)+\log n \cdot d(K)
+        \end{equation}
+\end{itemize}
+
+
+\section{Principal Component Analysis}
+
+The Principal Component Analysis (PCA) method reduces the dimensionality of a dataset in order to simplify the complexity of the ML analysis with an elevated number of variables. This method condenses the information provided by multiple variables $(X_1,\dots,X_p)$ from a given sample into a smaller number of variables, finding a number $s$ of underlying factors that explain approximately the same variance as the original variables with $s<p$. Each of the new variables $(Z_1,\dots,Z_p)$ are called principal components, which correspond to an eigenvector of the covariance matrix associated with the data. These new variables are linear combinations of the original variables.
+
+Each principal component ($Z_i$) is defined as a normalized linear combination of the original variables ($X_i$) under a variance maximization problem, indicating that the new component best summarizes the information contained in the original variables. We define each $Z_i$ as:
+
+\begin{equation}
+    Z_i=\Phi_{1i}X_1+\Phi_{2i}X_2+\dots+\Phi_{pi}X_p
+\end{equation}
+
+Each $\Phi$ represents the weight or importance that each variable $X_i$ has in each $Z_i$ and, explains the information collected by each of the principal components. To compute the first principal component of a dataset with $n$ observations and $p$ variables, first, centralize the variables so that they have zero mean. Then an optimization problem is solved to find the values of $\Phi$ that maximize the variance, using the eigenvectors of the covariance matrix. Once the first component is obtained, the second component is calculated following the same process, but adding the condition of no correlation with the already calculated components \cite{james2013introduction}.
+
+It is advisable to apply prior normalization to the data, since this method is highly sensitive to variables of different scales. Furthermore, the PCA only works with numerical data, so it is necessary to perform a previous preprocessing on categorical variables that may exist in the input dataset \cite{rodrigo2017un}.
+
+\section{Normalization} \label{sec:normalizar}
+
+The existence of attributes at different scales and measured in different units increases the influence of some variables over others in the clustering process. Normalization compresses or expands the values of each variable to fit them in the same range of values, normally [0,1], or [-1, 1], making them comparable in subsequent processes (PCA or ML algorithms). The choice of the normalization algorithm usually depends on the specific application and the dataset used, as different methods may yield different results and interpretations. For example, in clustering analysis, normalization can be particularly important for comparing similarities between characteristics based on certain distance measures. Among the most commonly used normalization methods in the literature are min-max normalization and Z-score standardization~\cite{henderi2021comparison,patro2015normalization}. In the context of PCA, z-score standardization is often preferred over min-max normalization. The z-score standardization method handles outliers better because it uses the standard deviation to scale the data, rather than a fixed range as in min-max normalization, where outliers can significantly affect the overall scale of the dataset. However, it is important to note that being more sensitive to outliers does not always work well for all datasets. We have also tested two other methods that are commonly used in the literature \cite{polat2018novel,ayub2020impact} and occasionally produce better results than the two described above.
+
+\begin{enumerate}
+    \item \textbf{Min-max normalization:} Uses the minimum and maximum in the attribute domain to normalize the values to the interval, $[0,1]$ keeping the distances for each data point $X$.
+    {\color{black} 
+    
+    \begin{equation}
+    X'=\frac{X-X_{min}}{X_{max}-X_{min}}
+    \end{equation}
+     }
+    
+    \item \textbf{Z-score standardization:} scales the values so that the mean ($\mu$) of the data domain is $0$ and the standard deviation ($\sigma$) is equal to $1$.
+
+ 
+    \begin{equation}
+    X'=\frac{X-\mu}{\sigma}
+    \end{equation}
+    
+\end{enumerate}
+
+\begin{enumerate}
+
+        \item[3.] \textbf{Median Absolute Deviation (MAD) normalization:} normalizes the data such that the median of each attribute is $0$ and the median absolute deviation is equal to $1$. The formula for MAD normalization is shown below:
+
+        \begin{equation}
+        X'=\frac{X-median(X)}{MAD(X)}
+        \end{equation}
+
+        Where $median(X)$ is the median of the values in attribute $X$, and $MAD(X)$ is the median absolute deviation of $X$.
+        
+        \item[4.] \textbf{$\ell^2$ normalization:} normalizes the data by dividing it by its Euclidean norm. This ensures that all feature vectors have the same length and is commonly used in machine learning and information retrieval. The formula for $\ell^2$ normalization is shown below:
+
+        \begin{equation}
+        X'=\frac{X}{||X||_2}
+        \end{equation}
+
+        Where $||X||_2$ is the Euclidean norm of, $X$ given by $\sqrt{\sum_{i=1}^n X_i^2}$.
+\end{enumerate}
+
+
+\section{Dataset geometry} \label{sec:flat}
+
+
+In mathematics, a Riemannian manifold is a geometric object that can be described locally as Euclidean space. Curvature is an intrinsic measure of a manifold, indicating how much the manifold curves at each point. In this context, we say that a manifold is flat if its curvature is zero at all points, that is, if the manifold is locally indistinguishable from a flat Euclidean space. If the curvature is not zero at any point of the manifold, the manifold is non-flat. In data analysis, we refer to flat and non-flat geometry as the measurement of distances between points by Euclidean or non-Euclidean geometric methods, respectively. In flat geometry, the distance is measured following a straight line between two points, while in non-flat geometry, the distance is measured following a curve. We can detect whether our data follow flat or non-flat geometry by representing the data in a scatter plot, where each point represents an individual in the population. Visually we can only represent 3 dimensions, which normally are the most representative variables of the cluster, or the firsts principal components of a dimensional reduction algorithm. If the resulting figure shows a roughly circular, rectangular, or elliptical shape, the data are likely to follow a flat geometry. However, if the figure has an irregular, twisted, or folded shape, the data are likely to follow a non-flat geometry. From different studies \cite{gallardo2020comparison}, it has been found that partitional or distribution category clustering algorithms work best with data cases that follow a flat geometry, while density-based and message-passing algorithms work best with non-flat geometries.\footnote{\url{https://scikit-learn.org/stable/modules/clustering.html}}
+
+\section{Case study: smart villages} \label{sec:smartvillages}
+
+Recent years have seen a growing trend of urban exodus, with many people leaving the cities in search of a quieter life. This development is largely due to the positive perception of the quality of life in rural areas, which offer a number of amenities attractive to those seeking a more relaxed lifestyle. In addition, with the advent of COVID-19, there has been a significant increase in the urban exodus, as many people have opted to live in less populated environments \cite{whitaker2021did}. With the rise of telecommuting, this trend is likely to continue in the future, with an increase in the number of people choosing to live in villages while working from home for companies in large cities. These migratory flows include both foreign immigrants and the arrival of resident citizens from other parts of the country, attracted by new conditions such as living in a cheaper and less crowded \cite{pinilla2008rural} environment. Also, noteworthy are the groups of retirees (both foreigners and nationals), who move to the countryside to acquire more comfortable homes, leading a quiet lifestyle that allows them to enjoy higher levels of social and environmental capital \cite{williams1997place,rodriguez2004international}. Most of these newcomers to the rural areas do not register their vehicles in their new residences. 
+
+The Alpujarra Granadina is a region located in the Sierra Nevada National Park in Granada, Spain. This region is made up of 32 municipalities with an average of fewer than 1000 inhabitants that enjoy a great tourist attraction with visitors of different nationalities \cite{escudero2018alpujarra}. The Alpujarra is an area that attracts foreign and national retirees, from other regions further north, who spend several months of the year there, avoiding the colder winter months. There are also new groups of people (neo-rural) who, motivated by environmental movements or simply the search for a quieter life, come from other parts of the country or other countries to experience an exotic village and become residents of the area for several months \cite{bertuglia2011reverse}. Both groups of individuals; retirees and neo-rurals, face a transition or permanent period, leaving the address of the vehicle registered to their previous residence. Following the concept discussed in \cite{rodriguez2004international}, we will call these groups of ``false residents" non-registered residents, since they do not have a residence permit but do have a dwelling or habitable accommodation during the long period of stay. Therefore, within the group of residents, we will distinguish between those who are registered in the study area (registered residents) and those who, despite behaving as residents and having their own homes, are not registered in any of the municipalities (non-registered residents), but who represent an important part of the population of the Alpujarra. Located on the southern slope of Sierra Nevada and within the northern part of the Alpujarra, is the Barraco de Poqueira, a region formed by the municipalities of Pampaneira, Bubión and Capileira \cite{escudero2018alpujarra}, and within which our case study is located. Preserving the ecosystem of this region is essential because it is situated in a natural park near a national park with unique biodiversity. Hence, we selected this region because it is essential to balance the wealth that brings tourists to the zone with the pollution generated by vehicles. Understanding the patterns of the vehicles in the zone is the first step to generating suitable policies to preserve the area's sustainability.
+
+\subsection{Addressing challenges in small tourist villages}
+
+Small tourist villages pose a significant challenge to policymakers due to the presence of non-registered residents. These non-registered residents, who are not accounted for in official statistics, can have a significant impact on the local economy and the provision of public services. In many cases, these non-registered residents are individuals who own or rent properties in the village but are not officially registered with local authorities as permanent residents \cite{jurado2009extranjeros}. Policymakers may need to explore creative solutions, such as offering tax incentives or social programs, to encourage non-registered residents to participate more actively in the local community. Another challenge for policymakers is finding ways to promote sustainable tourism in the area, by creating personalized experiences based on different seasons or the origin of the tourist flow \cite{staab2002intelligent}. Consequently, policymakers are striving to identify their needs and demands and provide them with appropriate services.
+
+One way to address these challenges is to use data-driven methods to better understand the characteristics and behaviors of individuals who visit the village \cite{kastenholz2018diverse}. Data-driven methods have a huge potential to comprehend visitor behavior and, based on that, develop policies and services that meet their needs. For instance, the use of mobile device data or any other information captured by sensors can provide insights into the movements and activities of individuals in the village \cite{gutierrez2020profiling}. Machine learning algorithms can then be employed to analyze this data and segment behaviors into different clusters. Policymakers can leverage this information to develop more effective policies and services that cater to common needs and enhance the overall economic and social well-being of the village. By addressing these challenges, policymakers can ensure that small tourist villages remain sustainable communities for both visitors and residents.
+
+\section{Smart Village Platform Design and Deployment} \label{sec:setup}
+
+The main objective of the Smart Poqueira project is the development of sustainable tourism in Alpujarra. The first step to develop a sustainble tourism is to study the current tourism. To that end we use sensorization tools to gather information on vehicles, provenance, and other relevant aspects, as well as the analysis of related data.
+
+In addition to the construction of a ML pipeline for data analysis, it is necessary to highlight my role in shaping the project's design and my contributions to various essential pre-tasks presented in this work. These include the decision-making process regarding camera placement, project management support, communication with LPR suppliers, and analysis of advantages and decisions made.
+
+\subsection*{Camera Placement}
+As a member of the project's design team, I participated in the task of identifying and determining optimal locations for camera installation. To accomplish this, we discussed various options and analyzed advantages and alternatives that would minimize costs while maximizing the information extracted by the cameras (discussed in Section \ref{sec:DataCollection}). Furthermore, we monitored the proper functioning of the cameras in the following months after installation, considering factors such as viewing angles, lighting conditions, and reporting incidents.
+
+\subsection*{Communication with Suppliers}
+As part of the project, a collaboration was established with the suppliers of the implemented LPR cameras. I served as one of the primary liaisons between our team and the external suppliers. My role involved establishing clear and effective communication, and ensuring that project requirements and expectations were adequately conveyed. I coordinated meetings with suppliers' team leaders to discuss progress, address issues or concerns, and ensure the promised quality was met.
+
+In summary, my involvement in the university project encompassed the configuration of the design, camera placement, project management support, and communication with external suppliers. Through my contributions in these areas, I aimed to ensure efficiency, effectiveness, and overall project success.
