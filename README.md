@@ -10,7 +10,7 @@ Emphasizing the crucial role of choosing the appropriate normalization algorithm
 
 ### Related work published extended
 
-Bolaños-Martinez, D., Bermudez-Edo, M., & Garrido, J. L. (2024). Clustering pipeline for vehicle behavior in smart villages. Information Fusion, 104, 102164.
+Bolaños-Martinez, D., Bermudez-Edo, M., & Garrido, J. L. (2024). Clustering pipeline for vehicle behavior in smart villages. Information Fusion, 104, 102164. Open source [link](https://doi.org/10.1016/j.inffus.2023.102164).
 
 -----
 
