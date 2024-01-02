@@ -6,7 +6,7 @@ Repositorio de mi **trabajo de fin de máster** para el *Máster en Gestión y T
 
 It proposes a pattern analysis pipeline that streamlines the selection of clustering and normalization algorithms by leveraging multiple data sources. 
 
-Emphasizing the crucial role of choosing the appropriate normalization algorithm for scaling heterogeneous data, the research focuses on understanding and analyzing mobility patterns using data from four License Plate Recognition (LPR) cameras over nine months in the Alpujarra Granadina, augmented with additional datasets, resulting in a dataset of over 50,000 vehicles.
+Emphasizing the crucial role of choosing the appropriate normalization algorithm for scaling heterogeneous data, the research focuses on understanding and analyzing mobility patterns using data from four License Plate Recognition (LPR) cameras over nine months in the Alpujarra Granadina, augmented with additional databases, resulting in a dataset of over 50,000 vehicles.
 
 ### Related work published extended
 
