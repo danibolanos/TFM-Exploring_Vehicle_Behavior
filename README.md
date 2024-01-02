@@ -1,28 +1,6 @@
-## TFG - Tools to Ensure Fairness in Machine Learning
+## TFM - Tools to Ensure Fairness in Machine Learning
 
-Repositorio de mi **trabajo de fin de grado** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Herramientas_para_Garantizar_Justicia_en_Aprendizaje_Automatico.pdf). Puede descargar las diapositivas de la presentación realizada al tribunal [aquí](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/releases/download/v1.0.0/TFG.Presentacion.pdf) (plantilla cedida por Julio Mulero de la Universidad de Alicante).
-
-Un tutorial para la ejecución del experimento basado en *Jupyter Notebook* puede ser consultado en el [siguiente enlace](https://github.com/danibolanos/TFG-Guarantee_Fairness_in_ML/blob/main/experimentos/tutorial.ipynb). Si desea ejecutarlos en su ordenador, será necesario que descargue las dependencias a los siguientes paquetes:
-
-* Pandas 1.2.4
-* NumPy 1.19.2
-* Scikit-learn 0.24.2
-* matplotlib 3.4.3
-* seaborn 0.11.2
-* pathlib2 2.3.6
-* Aequitas 0.42.0
-* PyStan 2.19.1.1
-* [PyMC3](https://github.com/pymc-devs/pymc/wiki/Installation-Guide-(Linux)) (opcional; para *otras_pruebas.py*)
-
-Puede hacerlo, bien manualmente, o bien puede utilizar el siguiente comando:
-
-```
-python -m pip install -r requirements.txt
- ```
- 
-#### Mejoras en el rendimiento
-
-En un futuro, se propone mejorar los resultados predichos para el modelo de regresión, utilizando un modelo no lineal que se adapte a las distribuciones estudiadas. Por ejemplo, utilizando un modelo de regresión polinomial o segmentada, o redefiniendo el problema en el ámbito de la clasificación y utilizando el algoritmo SVM o una red neuronal para predecir los resultados de las etiquetas.
+Repositorio de mi **trabajo de fin de máster** para el *Doble Grado en Ingeniería Informática y Matemáticas* de la [Universidad de Granada](http://www.ugr.es) sobre un estudio experimental para diferentes modelos de equidad contrafactual. Puede descargar una versión compilada de la memoria en [este enlace](https://github.com/danibolanos/TFM-Exploring_Vehicle_in_SV/releases/download/v1.0.0/TFM.Exploring_Vehicle_Behavior_in_Smart_Villages_Environments.pdf). Puede descargar las diapositivas de la presentación realizada al tribunal [aquí](https://github.com/danibolanos/TFM-Exploring_Vehicle_in_SV/releases/download/v1.0.0/TFM.Presentacion.pdf).
  
 ### Description
 
