@@ -1,0 +1,79 @@
+\chapter*{Abstract}
+
+Nowadays, machine learning algorithms are used in different fields with a great impact on society, such as: the process of granting bank loans (\cite{prestamo2018}), hiring staff for a job (\cite{contratar2015}) or deciding on a criminal justice conviction (\cite{condena2016}). These application examples are susceptible to discrimination, which is prohibited by international law (\cite{ley1964}).
+
+The causes of disparities in machine learning systems are essentially exists for historical reasons. Some of the possible causes (\cite{bigdata2016}) are:
+
+\begin{itemize}
+    \item Machine learning systems preserve existing discrimination in old data due to human bias. For example, if a hiring system uses the decisions made by a manager rather than his or her actual capabilities as predictive labels when selecting applicants for the position, in most cases, high-performing candidates could be rejected.
+    \item The number of examples and the information provided by their attributes are usually smaller for the minority group, so they are less likely to be correctly modelled with respect to individuals in the majority group.
+    \item Even if the sensitive attributes are not used in the model training, there may be attributes derived from them which, if included, will preserve the bias in the model ensemble. Sometimes it is very difficult to determine if a relevant attribute is correlated with the sensitive attributes and whether or not to include it in the training process.
+    \item If there is an initial bias, it is likely to worsen over time. For example, the police crime register only records crimes observed by the police. The police department will tend to send more officers to places where a higher crime rate has been detected initially and therefore crimes will be more likely to be detected in those regions. \vspace{2mm}
+\end{itemize}
+
+These problems have led to the development of much research on fairness in the field of machine learning, focusing on how discrimination arises, how it can be measured and how it can be mitigated. The aim of fairness will be to design algorithms that make fair predictions, avoiding disadvantaging a certain group of the population.
+
+\clearpage
+
+Despite these advances, in some settings, discrimination in modelling remains difficult to address, let alone understand, mainly due to: 
+
+\begin{itemize}
+    \item Applications generally act as black box models, in which we have restricted access to the classifier due to privacy issues, or intellectual property rights of the data used (\cite{blackbox2014}).
+	\item Models are deployed on a population where the distribution of the data does not reflect the patterns contained in the training dataset due to, for example, a change in the population distribution (\cite{distributionmodel2017}).
+\end{itemize}
+
+Fairness in machine learning aims to study and mitigate discrimination in algorithmic decision-making processes. There are currently three approaches to bias mitigation: pre-processing methods, optimisation methods and post-processing methods. In addition to these, there are a large number of fairness criteria emerging from the social science literature that are applied to machine learning. 
+
+We will make a first approach to the concepts of equity, trying to answer the following two questions:
+
+\begin{itemize}
+    \item \textbf{Parity or preference?} - If we are looking for fairness to achieve parity between individuals in the group or if we want to satisfy preferences within the group.
+    \item \textbf{Treatment or impact?} - If we try to maintain fairness during data processing, or on the other hand, in the results produced by the model (impact).
+\end{itemize}
+
+In response to the above questions (\cite{formalizing2018}), the following equity criteria emerge:
+
+\begin{itemize}
+    \item Unawareness.
+    \item Individual fairness.
+    \item Group fairness.
+    \item Causal measures.
+    \item Preference-based fairness.
+\end{itemize}
+
+We will need to study how the previous concepts are formalised in the field of machine learning and we will present its formalisations in different branches of computer engineering and mathematics. From a practical point of view, it is important to understand these fairness criteria and their implications by carrying out a theoretical and empirical analysis based on notions from the social science literature. This analysis is intended to help determine the goodness of existing formalisations and to be able to assess the advantages and disadvantages of each criterion with the aim of improving or constructing new fairness formalisations in the future. 
+
+As the main objective of our work, we suggest an exhaustive literature review of the bias mitigation methods and fairness measures presented in different articles such as \cite{formalizing2018} or \cite{definitions2018}. We propose to detail the mathematical tools that will be useful for the formalisation of fairness measures, with special emphasis on causal inference.
+
+In the practice, we will perform an analysis of the fairness research software Aequitas (\cite{aequitas2019}) on real-world examples that may have problems of bias among certain demographic groups. We will use the software on a dataset and will evaluate its results. We will also replicate an example based on the notion of counterfactual fairness (\cite{counterfactual2018}) using the Python programming language.
+
+The main contributions of this work are:
+
+\begin{itemize}
+    \item Formalise the different families of equity measures and analyse the most relevant bias mitigation algorithms in this field.
+    \item Present an alternative proof of the impossibility theorem to show the incompatibilities between different group fairness criteria.
+    \item Provide an empirical analysis, using the Aequitas software, for the evaluations of the theoretically studied fairness measures.
+    \item Replicate a real-world example of a causal model, in the Python programming language, based on the concept of counterfactual fairness, available at the \href{https://github.com/danibolanos/TFG-Ensuring_Fairness_in_ML.git}{link below}\footnote{https://github.com/danibolanos/TFG-Ensuring\_Fairness\_in\_ML.git}.
+    \item Contrast the results obtained by applying counterfactual fairness techniques with the different notions of equity considered.
+\end{itemize}
+
+In general terms, the work developed has the following structure:
+
+\begin{itemize}
+    \item \textbf{PART} \ref{part:princbasic} - \textbf{Basic mathematical principles.} Analysis of the basic mathematical principles used in the course of the work. In Chapter \ref{ch:teoriaprob} we will define results related to probability theory. In Chapter \ref{ch:disprob} we will present some examples of probability distributions. In Chapter \ref{ch:estapar} we will review the basics of parametric statistics. Finally, Chapter \ref{ch:teorgraf} will introduce some concepts of graph theory that will serve as a basis for the causal inference proposed later in the project. \vspace{3mm}
+    \item \textbf{PART} \ref{part:jusaa} - \textbf{Fairness in machine learning.} We will introduce the tools needed to formalise the different measures of fairness and a review of the most popular bias mitigation algorithms. In Chapter \ref{ch:conceptosaa} we will introduce machine learning by presenting its properties and main evaluation metrics. In Chapter \ref{ch:formalmedeq} we will formalise the most popular fairness measures in the literature and establish a subdivision into families. Finally, in Chapter \ref{ch:algmitigar} we will classify the different bias mitigation algorithms and present some examples of each type. \vspace{3mm}
+    \item \textbf{PART} \ref{part:fundamentoseqcontra} - \textbf{Basics of counterfactual fairness.} We will present the concept of counterfactual fairness, providing the mathematical basis on which it is based and the motivations for its construction. In Chapter \ref{ch:inferenciacau} we will introduce causal inference and define its main tools for working in this field. In Chapter \ref{ch:teoremaimposibilidad} we will provide an alternative proof of the impossibility theorem of fairness. Finally, in Chapter \ref{ch:medidascausal} we will present the concept of causal measures and define counterfactual fairness as a subclass of them based on the notion of counterfactual.
+    \clearpage
+    \item \textbf{PART} \ref{part:analisis_exp} - \textbf{Experimental analysis.} Python experiment about counterfactual fairness based on the problem proposed in \cite{counterfactual2018}. In Chapter \ref{ch:descdise} we will describe the problem and examine the different designs of the proposed causal models. Finally, in Chapter \ref{ch:implementaresult} we will analyse the code of the proposed solution, the conditions of the experiment and discuss the results obtained. We will also include a tutorial to reproduce the experiment. \vspace{3mm}
+    \item \textbf{PART} \ref{part:debate_fut} - \textbf{Conclusions and further directions.} In Chapter \ref{ch:conclusion} we will analyse the conclusions reached from the project and in Chapter \ref{ch:trabajos_fut} we will present possible directions for future development. \vspace{3mm}
+    \item \textbf{BIBLIOGRAPHY.} Compilation of the different literature sources referred to throughout the work. \vspace{3mm}
+    \item \textbf{APPENDIXES.} We will analyse the Aequitas software and we will also make an estimate of the planning and cost of the project. \vspace{3mm}
+\end{itemize}
+
+This work has shown us that the notions of unawareness and individual fairness, which might seem sufficient to avoid bias in a dataset, have many disadvantages when applied in practice. Moreover, the main drawbacks with the concepts of fairness group are the incompatibility between its three most popular measures, the relaxation of several of its notions and its observational nature.
+
+Causal measures emerge as a solution to the problems described above, and counterfactual fairness is defined as a subclass of them. However, counterfactual fairness, although it has many advantages, also has some obvious problems as it implies some previous mathematical knowledge about causal inference. Nevertheless, this concept in general, manages to eliminate the existing bias and offers visual tools for the correct interpretation of the data by a user without extensive programming skills.
+
+Finally, the use of software tools for bias detection such as Aequitas on several datasets, presents us with the need to use optimisation algorithms such as the one replicated in the experiment to work with a dataset that could integrate unfair treatments on specific groups of the population. Furthermore, it points out the obvious lack of interaction and visualisation tools for results that could be used by experts from social and technological fields in the same way.\\
+
+\textbf{Keywords:} fairness metrics, bias mitigation, disparate impact,  impossibility theorem, counterfactual fairness, Aequitas.

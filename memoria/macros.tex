@@ -1,0 +1,137 @@
+%------------------------
+% Bibliotecas para matemáticas de latex
+%------------------------
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[ruled, spanish, onelanguage]{algorithm2e}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{shapes, fit, automata,  positioning, arrows}
+\usepackage{bussproofs}
+\EnableBpAbbreviations{}
+\usepackage{mathtools}
+\usepackage{scalerel}
+\usepackage{verbatim} % comentarios
+\usepackage{stmaryrd}
+\usepackage{natbib}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage[theorems, skins, breakable]{tcolorbox}
+
+% Licencia
+\usepackage[
+    type={CC},
+    modifier={by-sa},
+    version={4.0},
+]{doclicense}
+
+% Glossaries
+%\usepackage[toc, nopostdot,  style=super, nonumberlist, section=chapter ]{glossaries}
+%\newglossary{symbols}{sym}{sbl}{List of Abbreviations and Symbols}
+%\makeglossaries
+%\loadglsentries{bibliography/glossary}
+
+%------------------------
+% Estilos para los teoremas
+%------------------------
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}
+\newtheorem{proposition}{Proposición}
+\newtheorem{lemma}{Lema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{definition}{Definición}
+\theoremstyle{remark}
+\newtheorem{remark}{Comentario}
+\newtheorem{example}{Ejemplo}
+\newtheorem{result}{Resultado}
+\theoremstyle{definition}
+\newtheorem{notation}{Notación}
+
+\tcolorboxenvironment{definition}{
+  blanker,
+  breakable,
+  left=12pt,
+  %before skip=12pt,
+  after skip=12pt,
+  borderline west={2pt}{0pt},
+  before upper={\parindent 12pt}
+}
+
+\tcolorboxenvironment{proposition}{
+  blanker,
+  breakable,
+  left=12pt,
+  %before skip=12pt,
+  after skip=12pt,
+  borderline west={2pt}{0pt},
+  before upper={\parindent 12pt}
+}
+
+\tcolorboxenvironment{theorem}{
+  blanker,
+  breakable,
+  left=12pt,
+  %before skip=12pt,
+  after skip=12pt,
+  borderline west={2pt}{0pt}{red},
+  before upper={\parindent 12pt}
+}
+
+\tcolorboxenvironment{corollary}{
+  blanker,
+  breakable,
+  left=12pt,
+  %before skip=12pt,
+  after skip=12pt,
+  borderline west={2pt}{0pt}{red},
+  before upper={\parindent 12pt}
+}
+
+\tcolorboxenvironment{lemma}{
+  blanker,
+  breakable,
+  left=12pt,
+  %before skip=12pt,
+  after skip=12pt,
+  borderline west={2pt}{0pt}{red},
+  before upper={\parindent 12pt}
+}
+
+\begingroup\makeatletter\@for\theoremstyle:=definition,remark,lemma,plain\do{\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{\addtolength\thm@preskip\parskip}}\endgroup
+
+%------------------------
+% Macros
+% ------------------------
+
+% Aquí pueden añadirse abreviaturas para comandos de latex
+% frequentemente usados.
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert} 
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\norminf}[1]{\left \| #1 \right \|_\infty} 
+\newcommand{\KN}{\mathbb K^{\mathbb N}}
+\newcommand{\RN}{\mathbb R^{\mathbb N}}
+\newcommand{\K}{\mathbb K}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\ \mathrm d}
+\newcommand{\Ro}{\R_0^+}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\PR}{\mathcal{P}(\R^N)}
+\newcommand{\mst}{(X_1,\dots,X_n)}
+\newcommand{\htheta}{\bm{\hat{\theta}}}
+\newcommand{\Rn}{\R^N}
+\newcommand{\nm}[1]{ \textbf{#1}}
+\newcommand{\btheta}{\bm{\theta}}
+\newcommand{\bigCI}{\mathrel{\text{\scalebox{1.07}{$\perp\mkern-10mu\perp$}}}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\newcommand\mm[3][]{\begin{tabular}{@{}c@{}}
+  \ensuremath{\textbf{#2}}\\[-1.2ex]{\text{\tiny(#3)}}
+  \end{tabular}}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2020-12-01" view-index="0" gantt-divider-location="512" resource-divider-location="300" version="3.1.3100" locale="es_ES">
+    <description/>
+    <view zooming-state="default:10" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="319" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="93" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="96" order="2"/>
+        <timeline>
+            <![CDATA[43]]>
+        </timeline>
+        <option id="color.recent">
+            <![CDATA[#66ff66 #66ccff #ff9999 #ff6666 #99ff99 #ffccff #99ccff #ff99ff]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="13" name="Estudio de los fundamentos básicos" color="#66ccff" meeting="false" start="2021-04-07" duration="23" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="4" name="Formalización de las medidas de equidad" color="#66ccff" meeting="false" start="2021-05-10" duration="30" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="19" name="Caracterización del teorema de imposibilidad" color="#66ccff" meeting="false" start="2021-06-21" duration="23" complete="0" thirdDate="2019-11-04" thirdDate-constraint="0" expand="true"/>
+        <task id="7" name="Análisis de los algoritmos de mitigación de sesgo" color="#66ccff" meeting="false" start="2021-07-22" duration="8" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="22" name="Investigación sobre los modelos y medidas causales" color="#66ccff" meeting="false" start="2021-08-03" duration="9" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="23" name="Instalación de SO, IDE y bibliotecas" color="#66ff66" meeting="false" start="2021-08-16" duration="2" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="26" name="Replicación equidad contrafactual en Python" color="#66ff66" meeting="false" start="2021-08-17" duration="34" complete="0" thirdDate="2019-09-02" thirdDate-constraint="0" expand="true"/>
+        <task id="35" name="Implementación de gráficas para visualización" color="#66ff66" meeting="false" start="2021-10-01" duration="5" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+        <task id="38" name="Análisis con Aequitas" color="#66ff66" meeting="false" start="2021-10-07" duration="8" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
+        <task id="29" name="Validación y testeo del código" color="#66ff66" meeting="false" start="2021-08-17" duration="47" complete="0" thirdDate="2020-06-29" thirdDate-constraint="0" expand="true"/>
+        <task id="41" name="Contraste de los resultados obtenidos" color="#66ff66" meeting="false" start="2021-10-20" duration="16" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
+        <task id="43" name="Redacción memoria / Reuniones" color="#ff9999" meeting="false" start="2021-04-01" duration="167" complete="0" thirdDate="2020-06-09" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
